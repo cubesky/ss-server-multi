@@ -1,19 +1,12 @@
-if [ $SSENV1 ];then
-    wget $SSENV1 -O config1.conf
+if [ $SSPORT1 ];then
+    echo ss-server Port 10010
+    ss-server -s 0.0.0.0 -m aes-256-cfb -p 10010 -k $SSPORT1
 fi
-if [ $SSENV2 ];then
-    wget $SSENV2 -O config2.conf
+if [ $SSPORT2 ];then
+    echo ss-server Port 10020
+    ss-server -s 0.0.0.0 -m aes-256-cfb -p 10020 -k $SSPORT2
 fi
-if [ $SSENV3 ];then
-    wget $SSENV3 -O config3.conf
-fi
-
-if [ $SSENV1 ];then
-    ss-server -c config1.conf & 
-fi
-if [ $SSENV2 ];then
-    ss-server -c config2.conf & 
-fi
-if [ $SSENV3 ];then
-    ss-server -c config3.conf & 
+if [ $SSPORT3 ];then
+    echo ss-server Port 10030
+    ss-server -s 0.0.0.0 -m aes-256-cfb -p 10030 -k $SSPORT3
 fi
